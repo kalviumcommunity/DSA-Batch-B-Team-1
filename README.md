@@ -230,3 +230,5 @@ There are intentionally three representations:
 3. Sorted ArrayList -> binary-searchable name lookup
 
 The `ContactManager` keeps all three synchronized whenever a contact is added or deleted.
+
+Member 1 explanation (Hamshaverthini)- https://drive.google.com/file/d/10ySHr-aP1psy64H2PdNXgko1c8VLIGbD/view?usp=sharing
