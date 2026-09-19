@@ -42,15 +42,15 @@ SmartContactSearchSystem/
 
 ## DSA Design
 
-### 1. Hashing
+### 1. Hashing (Member 3 - Custom Hash Table)
 
-`HashMap<Integer, Contact>` stores:
+`ContactHashTable` (custom separate-chaining Hash Table) stores:
 
 ```text
 Contact ID -> Contact
 ```
 
-This allows average-case O(1) ID lookup.
+This provides average-case O(1) ID lookup using `index = Math.abs(id) % TABLE_SIZE` and separate chaining for collision handling.
 
 ### 2. Linked List
 
@@ -125,7 +125,7 @@ The linked list may need to be traversed to find the node, and removing an item 
 
 ### Why is ID Search O(1) average?
 
-`HashMap` uses hashing to map the Contact ID to the corresponding Contact.
+`ContactHashTable` uses a custom hash function (`Math.abs(id) % TABLE_SIZE`) to map the Contact ID to a specific bucket index, achieving O(1) average time complexity. Separate chaining handles any collisions.
 
 ### Why is Name Search O(log n)?
 

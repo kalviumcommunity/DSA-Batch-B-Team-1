@@ -1,11 +1,10 @@
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
 
 public class ContactManager {
     private final ContactLinkedList contactList;
-    private final HashMap<Integer, Contact> contactMap;
+    private final ContactHashTable contactHashTable;
 
     // Always kept sorted by name, then ID.
     private final ArrayList<Contact> sortedContacts;
@@ -16,17 +15,17 @@ public class ContactManager {
 
     public ContactManager() {
         contactList = new ContactLinkedList();
-        contactMap = new HashMap<>();
+        contactHashTable = new ContactHashTable();
         sortedContacts = new ArrayList<>();
     }
 
     public boolean addContact(Contact contact) {
-        if (contactMap.containsKey(contact.getId())) {
+        if (contactHashTable.containsKey(contact.getId())) {
             return false;
         }
 
         contactList.add(contact);
-        contactMap.put(contact.getId(), contact);
+        contactHashTable.insert(contact);
 
         // Insert into the sorted collection.
         int position = findInsertionPosition(contact);
@@ -36,14 +35,14 @@ public class ContactManager {
     }
 
     public boolean deleteContact(int id) {
-        Contact contact = contactMap.get(id);
+        Contact contact = contactHashTable.searchById(id);
 
         if (contact == null) {
             return false;
         }
 
         contactList.deleteById(id);
-        contactMap.remove(id);
+        contactHashTable.remove(id);
 
         // Remove the same object from the sorted collection.
         sortedContacts.remove(contact);
@@ -52,7 +51,7 @@ public class ContactManager {
     }
 
     public Contact searchById(int id) {
-        return contactMap.get(id);
+        return contactHashTable.searchById(id);
     }
 
     /*
