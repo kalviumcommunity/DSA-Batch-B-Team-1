@@ -231,4 +231,4 @@ There are intentionally three representations:
 
 The `ContactManager` keeps all three synchronized whenever a contact is added or deleted.
 
-Member 1 explanation (Hamshaverthini)- https://drive.google.com/file/d/10ySHr-aP1psy64H2PdNXgko1c8VLIGbD/view?usp=sharing
+Member 1 explanation (Hamshaverthini)- https://drive.google.com/file/d/1xuHKloB7A3PSUxYtJGp5O4KsfUdgzCYe/view?usp=sharing
