@@ -232,3 +232,7 @@ There are intentionally three representations:
 The `ContactManager` keeps all three synchronized whenever a contact is added or deleted.
 
 Member 1 explanation (Hamshaverthini)- https://drive.google.com/file/d/1xuHKloB7A3PSUxYtJGp5O4KsfUdgzCYe/view?usp=sharing
+
+Member 2
+Linked List + Delete
+Linked List, delete by ID  - (Explanation)[https://drive.google.com/file/d/1JtocCHYdIXiRw3saM6NrHuXilKlF1RdS/view?usp=sharing]
