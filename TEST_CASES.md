@@ -1,5 +1,18 @@
 # Test Cases - Smart Contact Search System
 
+## Automated Python Tests
+
+Run all automated tests from the project root:
+
+```bash
+python3 -m unittest discover -s tests -v
+```
+
+The suite verifies recursive traversal and counting, empty lists, deletion,
+duplicate IDs, duplicate names, ID/name search, and contact validation.
+
+The test implementation is in `tests/test_contact_manager.py`.
+
 ## TC01 - Add Contact
 
 Input:

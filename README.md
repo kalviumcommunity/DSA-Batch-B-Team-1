@@ -1,6 +1,6 @@
 # Smart Contact Search System
 
-A simple Java console-based contact manager demonstrating multiple Data Structures and Algorithms (DSA):
+A simple Python contact manager demonstrating multiple Data Structures and Algorithms (DSA):
 
 - Hashing using `HashMap`
 - Binary Search
@@ -30,11 +30,9 @@ Each contact contains:
 SmartContactSearchSystem/
 │
 ├── src/
-│   ├── Contact.java
-│   ├── Node.java
-│   ├── ContactLinkedList.java
-│   ├── ContactManager.java
-│   └── Main.java
+│   └── contact_manager.py
+├── tests/
+│   └── test_contact_manager.py
 │
 ├── README.md
 └── TEST_CASES.md
@@ -44,13 +42,13 @@ SmartContactSearchSystem/
 
 ### 1. Hashing (Member 3 - Custom Hash Table)
 
-`ContactHashTable` (custom separate-chaining Hash Table) stores:
+The Python manager stores contacts in a dictionary keyed by ID:
 
 ```text
 Contact ID -> Contact
 ```
 
-This provides average-case O(1) ID lookup using `index = Math.abs(id) % TABLE_SIZE` and separate chaining for collision handling.
+This provides average-case O(1) ID lookup.
 
 ### 2. Linked List
 
@@ -81,23 +79,22 @@ Duplicate names are supported. After finding one matching name using binary sear
 
 The linked list has two recursive operations:
 
-```java
-displayRecursive()
-countRecursive()
+```python
+display_recursive()
+count_recursive()
 ```
 
 Base case:
 
-```java
-if (current == null) {
-    return;
-}
+```python
+if current is None:
+    return 0
 ```
 
 Recursive step:
 
-```java
-displayRecursive(current.next);
+```python
+return 1 + count(current.next)
 ```
 
 ## Complexity Analysis
@@ -133,34 +130,22 @@ Binary search repeatedly divides the sorted search range approximately in half.
 
 ## How to Run
 
-### Prerequisite
+### Python prerequisite
 
-Install Java JDK 17 or newer.
+Install Python 3.10 or newer.
 
-Check Java:
-
-```bash
-java -version
-```
-
-Check the compiler:
+Check Python:
 
 ```bash
-javac -version
+python3 --version
 ```
 
-### Compile
+### Run tests
 
 Open a terminal in the project root:
 
 ```bash
-javac -d out src/*.java
-```
-
-### Run
-
-```bash
-java -cp out Main
+python3 -m unittest discover -s tests -v
 ```
 
 ## Example
@@ -213,13 +198,14 @@ Binary search needs efficient random access to the middle element. A linked list
 
 The project specifically requires a linked-list-based contact storage structure. It also demonstrates node-based storage and traversal.
 
-### Where is recursion used?
+### Where is recursion used? (Member 5)
 
-Recursive traversal is used to display all contacts and count the contacts.
+`ContactLinkedList.display_recursive()` traverses every node recursively, and
+`count_recursive()` counts nodes recursively.
 
 ### What is the base case?
 
-When the current node becomes `null`, recursion stops.
+When the current node becomes `None`, recursion stops.
 
 ## Important Design Note
 
@@ -230,6 +216,13 @@ There are intentionally three representations:
 3. Sorted ArrayList -> binary-searchable name lookup
 
 The `ContactManager` keeps all three synchronized whenever a contact is added or deleted.
+
+## Member 5 Contribution
+
+- Added recursive traversal and recursive contact counting in Python.
+- Added automated tests in `tests/test_contact_manager.py`.
+- Covered empty lists, duplicate IDs, duplicate names, deletion, missing contacts,
+  and invalid contact fields.
 
 Member 1 explanation (Hamshaverthini)- https://drive.google.com/file/d/1xuHKloB7A3PSUxYtJGp5O4KsfUdgzCYe/view?usp=sharing
 
